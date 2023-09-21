@@ -1,10 +1,9 @@
 export class AuthTokenEntity {
   constructor(
-    private readonly pClient: string = '',
-    private readonly pAccessToken: string = '',
+    private readonly client: string = '',
+    private readonly accessToken: string = '',
   ) {
-    (this.client = pClient), (this.accessToken = pAccessToken);
+    client = client;
+    accessToken = accessToken;
   }
-  client: string;
-  accessToken: string;
 }
