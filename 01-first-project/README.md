@@ -57,9 +57,12 @@ $ npm i @nestjs/mapped-types
 ## Config
 $ npm install --save @nestjs/config
 
-
 ## Security
 $ npm install --save @nestjs/jwt
+
+## TypeOrm
+#### https://typeorm.io/
+$ npm install --save typeorm @nestjs/typeorm pg
 
 
 ## Test

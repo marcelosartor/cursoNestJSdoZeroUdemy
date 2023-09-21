@@ -1,0 +1,40 @@
+version: "3.3"
+
+networks:
+  curso-nestjs-network:
+    driver: bridge
+
+volumes:
+  curso-nestjs:
+    external: true
+
+services:
+  curso-nestjs:
+    # docker exec -it postgres_livro-postgres_1 psql -U postgres
+    # docker exec -it postgres_livro-postgres_1 bash
+    # docker exec -it postgres_livro-postgres_1 pg_dump --host localhost --port 5432 --username postgres --format tar --file curso.backup postgres
+    build: ./
+    image: postgresms
+    #    image: postgres-uuid:13.2-alpine
+    environment:
+      POSTGRES_PASSWORD: 123456
+    ports:
+      - "5432:5432"
+    volumes:
+      - curso-nestjs:/var/lib/postgresql/data
+    #      - db-algafood
+    networks:
+      - curso-nestjs-network
+
+  #graphql-engine:
+  #  image: hasura/graphql-engine:v1.3.2
+  #  ports:
+  #    - "8090:8080"
+  #  depends_on:
+  #    - "livro-postgres"
+  #  restart: always
+  #  environment:
+  #    HASURA_GRAPHQL_DATABASE_URL: postgresql://livro-postgres:123456@postgres:5432/postgres
+  #    HASURA_GRAPHQL_ENABLE_CONSOLE: "true" # set to "false" to disable console
+  #    HASURA_GRAPHQL_DEV_MODE: "true"
+  #    HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log

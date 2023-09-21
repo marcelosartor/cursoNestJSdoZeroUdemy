@@ -3,6 +3,9 @@ import { JwtModule } from '@nestjs/jwt';
 import { EnvConfigModule } from 'src/core/env-config/env-config.module';
 import { EnvConfigService } from 'src/core/env-config/services/env-config.service';
 import { AuthService } from './services/auth.service';
+import { AuthController } from './infra/controllers/auth.controller';
+import { PostTokenAuthService } from './services/post-token-auth.service';
+import { PostTokenAuthController } from './infra/controllers/post-token-auth.controller';
 
 @Module({
   imports: [
@@ -17,6 +20,7 @@ import { AuthService } from './services/auth.service';
       inject: [EnvConfigService],
     }),
   ],
-  providers: [AuthService],
+  providers: [AuthService, PostTokenAuthService],
+  controllers: [AuthController, PostTokenAuthController],
 })
 export class AuthModule {}
