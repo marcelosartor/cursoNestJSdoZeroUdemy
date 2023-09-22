@@ -65,7 +65,11 @@ $ npm install --save @nestjs/jwt
 $ npm install --save typeorm @nestjs/typeorm pg
 
 #### Migrações
-npx typeorm migration:create -n <path>/<001__<nome_da_migracao>
+
+npm run migration:create --name=Mnnn_<nome-do-arquivo>
+npm run migration:run
+npm run migration:revert
+
 
 
 

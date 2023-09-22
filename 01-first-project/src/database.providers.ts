@@ -18,6 +18,7 @@ export default new DataSource({
   //entities: [__dirname + '/../**/*.entity{.ts,.js}'],
   entities: [`dist/*/.entity{.ts,.js}`],
   //migrations: [__dirname + '/core/database/migrations/*.{.ts,.js}'],
+  migrationsTableName: 'portal-representante-migrations',
   migrations: ['dist/core/database/migrations/*{.ts,.js}'],
 });
 
