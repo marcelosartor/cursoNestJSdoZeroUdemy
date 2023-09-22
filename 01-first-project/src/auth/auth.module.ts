@@ -12,9 +12,9 @@ import { PostCheckTokenAuthService } from './services/post-check-token-auth.serv
 @Global()
 @Module({
   imports: [
-    EnvConfigModule,
+    //EnvConfigModule,
     JwtModule.registerAsync({
-      imports: [EnvConfigModule],
+      //imports: [EnvConfigModule],
       useFactory: async (configService: EnvConfigService) => ({
         global: true,
         secret: configService.getJwtSecret(),

@@ -64,6 +64,10 @@ $ npm install --save @nestjs/jwt
 #### https://typeorm.io/
 $ npm install --save typeorm @nestjs/typeorm pg
 
+#### Migrações
+npx typeorm migration:create -n <path>/<001__<nome_da_migracao>
+
+
 
 ## Test
 
