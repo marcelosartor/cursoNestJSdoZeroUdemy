@@ -6,7 +6,9 @@ import {
   Param,
   Patch,
   Post,
+  UseGuards,
 } from '@nestjs/common';
+import { AuthGuard } from 'src/auth/infra/guards/auth.guard';
 import { CreateCourseDto } from 'src/courses/domain/dto/create-course.dto';
 import { UpdateCourseDto } from 'src/courses/domain/dto/update-course.dto';
 import { CoursesService } from 'src/courses/services/courses.service';
@@ -34,6 +36,7 @@ export class CoursesController {
   }
   */
 
+  @UseGuards(AuthGuard)
   @Get()
   findAll() {
     return this.coursesServices.findAll();

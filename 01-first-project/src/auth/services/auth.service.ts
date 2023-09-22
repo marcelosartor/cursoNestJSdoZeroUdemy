@@ -22,14 +22,11 @@ export class AuthService {
   }
 
   async verifyJwt(token: string) {
-    console.log(token);
     const options = { secret: this.configService.getJwtSecret() };
     try {
       const valid = await this.jwtService.verifyAsync(token, options);
-      console.log(valid);
       return 'valido';
     } catch (error) {
-      console.log(error);
       return 'invalido';
     }
   }

@@ -8,7 +8,6 @@ export class PostTokenAuthController {
 
   @Post()
   async generateToken(@Headers() pHeaders, @Body() pBody) {
-    console.log(pHeaders);
     return await this.postTokenAuthService.generateJwt(pHeaders, pBody);
   }
 }

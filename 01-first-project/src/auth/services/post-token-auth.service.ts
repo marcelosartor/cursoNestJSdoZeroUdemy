@@ -32,7 +32,6 @@ export class PostTokenAuthService {
     const payload = { client: clientCredendial.client };
     const options = {};
     const accessToken = await this.jwtService.signAsync(payload, options);
-    console.log(accessToken);
     const token = new AuthTokenEntity(clientCredendial.client, accessToken);
 
     return token;

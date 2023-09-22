@@ -1,4 +1,4 @@
-import { Inject, Module } from '@nestjs/common';
+import { Global, Inject, Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { EnvConfigModule } from 'src/core/env-config/env-config.module';
 import { EnvConfigService } from 'src/core/env-config/services/env-config.service';
@@ -9,6 +9,7 @@ import { PostTokenAuthController } from './infra/controllers/post-token-auth.con
 import { PostCheckTokenAuthController } from './infra/controllers/post-check-token-auth.controller';
 import { PostCheckTokenAuthService } from './services/post-check-token-auth.service';
 
+@Global()
 @Module({
   imports: [
     EnvConfigModule,
@@ -23,6 +24,11 @@ import { PostCheckTokenAuthService } from './services/post-check-token-auth.serv
     }),
   ],
   providers: [AuthService, PostTokenAuthService, PostCheckTokenAuthService],
-  controllers: [AuthController, PostTokenAuthController, PostCheckTokenAuthController],
+  controllers: [
+    AuthController,
+    PostTokenAuthController,
+    PostCheckTokenAuthController,
+  ],
+  exports: [PostCheckTokenAuthService],
 })
 export class AuthModule {}

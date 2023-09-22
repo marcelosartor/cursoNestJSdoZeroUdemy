@@ -10,7 +10,6 @@ export class PostCheckTokenAuthController {
 
   @Post()
   async generateToken(@Body() pBody) {
-    console.log(pBody);
     return await this.postCheckTokenAuthService.getCheckToken(pBody);
   }
 }

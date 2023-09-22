@@ -7,13 +7,11 @@ export class AuthController {
 
   @Post('token/:id')
   getToken(@Param('id') _id: string) {
-    console.log('ok ');
     return this.authServices.generateJwt('1');
   }
 
   @Get('valid-token/:token')
   getValidToken(@Param('token') _token: string) {
-    console.log('ok valid ');
     return this.authServices.verifyJwt(_token);
   }
 }

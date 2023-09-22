@@ -4,7 +4,7 @@ import { CoursesService } from './services/courses.service';
 import { AuthModule } from 'src/auth/auth.module';
 
 @Module({
-  imports: [AuthModule],
+  //imports: [AuthModule],
   controllers: [CoursesController],
   providers: [CoursesService],
 })
