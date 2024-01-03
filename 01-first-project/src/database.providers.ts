@@ -6,7 +6,6 @@ import { EnvConfigService } from './core/env-config/services/env-config.service'
 config();
 
 const configService = new EnvConfigService(new ConfigService());
-console.log(__dirname + '/core/database/migrations/*.{.ts,.js}');
 
 export default new DataSource({
   type: 'postgres',

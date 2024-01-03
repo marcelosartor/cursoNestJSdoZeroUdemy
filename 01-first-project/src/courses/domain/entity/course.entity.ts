@@ -1,14 +1,18 @@
-import { Options } from '@nestjs/common';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Options } from '@nestjs/common'
+import { Type } from 'class-transformer'
+import { Tag } from 'src/tag/domain/entity/tag.entity'
+import { Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from 'typeorm'
 
-@Entity('courses')
+@Entity({ name: 'courses' })
 export class Course {
-  @PrimaryGeneratedColumn()
-  id: number;
-  @Column()
-  name: string;
-  @Column()
-  description: string;
-  @Column({ type: 'json', nullable: true })
-  tags: string[];
+	@PrimaryGeneratedColumn()
+	id: number
+	@Column()
+	name: string
+	@Column()
+	description: string
+
+	@JoinTable()
+	@ManyToMany(() => Tag, tag => tag.courses, { cascade: true })
+	tags: Tag[]
 }
